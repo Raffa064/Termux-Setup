@@ -1,7 +1,7 @@
 function setup_motd() {
   local motd_path="$HOME/.termux/motd.sh"
   nodbg touch "$motd_path"
-  echo "neofetch" >> "$motd_path"
+  append_conf $motd_path "neofetch"
 }
 
 function setup_fullscreen_toggler() {
