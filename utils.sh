@@ -1,6 +1,5 @@
 # Utility functions
 
-DEBUG="true" # true | false
 EDITOR="nano"
 EDITOR_ARGS="-l"
 TERMUX_DIR="$HOME/.termux"
@@ -157,7 +156,7 @@ function append_conf() {
   local conf="$2"
 
   if ! cat $file | grep "$conf" >/dev/null; then
-    echo "$conf" '>>' "$file"
+    echo "$conf" >> "$file"
   fi
 
   ondbg warn "Mutable function call in debug mode: append_conf"
@@ -168,6 +167,9 @@ function mv() {
   exit
 }
 
-if [ "$DEBUG" == "true" ]; then
- warn "[ Debug Mode Enabled ]"
+if [ "$1" == "--no-dbg" ]; then
+  DEBUG="false"
+else
+  DEBUG="true"
+  warn "[ Debug Mode Enabled ]"
 fi
