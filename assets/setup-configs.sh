@@ -39,7 +39,8 @@ cfg git_aliases \
   "com 'checkout main'" \
   "cm 'commit -m'" \
   "a add" \
-  "s status"
+  "s status" \
+  "p push"
 
 # Symbolic Links
 cfg symlinks ""
