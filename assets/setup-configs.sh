@@ -36,8 +36,10 @@ cfg git_default_branch "main"
 cfg git_aliases \
   "co checkout" \
   "cob 'checkout -B'" \
+  "com 'checkout main'" \
   "cm 'commit -m'" \
-  "a add"
+  "a add" \
+  "s status"
 
 # Symbolic Links
 cfg symlinks ""
