@@ -1,0 +1,6 @@
+ble-face auto_complete=fg=8,bg=0
+ble-face syntax_error=fg=203,underline
+ble-face filename_directory=fg=12,underline
+ble-face syntax_quotation=fg=11
+ble-face syntax_quoted=fg=3
+ble-face command_function=fg=33
