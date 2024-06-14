@@ -6,6 +6,7 @@ source "./utils.sh"
 source "./configs.sh"
 source "./install-packages.sh"
 source "./run-setups.sh"
+source "./make-symlinks.sh"
 
 function pconf() {
   local config="$1"
@@ -56,5 +57,4 @@ confirm_configs
 section update_and_upgrade "Updating packages..."
 section install_packages "Installing packages..."
 section run_setups "Running setups..."
-
-append_conf "test.sh" "echo hello world"
+section make_symlinks "Making symlinks..."
