@@ -34,4 +34,4 @@ function setup_neovim() {
   nvim -c "MasonInstallAll"
 }
 
-section setup_neovim "Neovim/NvChad Setup"
+nodbg section setup_neovim "Neovim/NvChad Setup"
