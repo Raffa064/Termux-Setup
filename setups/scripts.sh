@@ -37,7 +37,6 @@ function setup_init_sh() {
   INIT_LINES+=( "source $scripts_dir/autoalias.sh $scripts_dir" )
   
   for init_line in "${INIT_LINES[@]}"; do
-    code "$init_line"
     append_conf "$init_sh" "$init_line"
   done
 }

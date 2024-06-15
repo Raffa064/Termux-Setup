@@ -1,7 +1,7 @@
 # Packe installation
 tools="wget curl git gh neovim" 
 producivity="zoxide fzf entr bat"
-scripting="bc termux-api"
+scripting="bc termux-api ripgrep"
 customization="neofetch"
 languages="nodejs-lts python3 make clang"
 cfg packages "$tools" "$producivity" "$scripting" "$customization $languages"
@@ -33,14 +33,16 @@ cfg_in git_user_email
 
 cfg git_default_branch "main"
 
-cfg git_aliases \
-  "co checkout" \
-  "cob 'checkout -B'" \
-  "com 'checkout main'" \
-  "cm 'commit -m'" \
-  "a add" \
-  "s status" \
+cfg git_aliases '' # export as config
+git_aliases=(
+  "co checkout"
+  "cob 'checkout -B'"
+  "com 'checkout main'"
+  "cm 'commit -m'"
+  "a add"
+  "s status"
   "p push"
+)
 
 # Symbolic Links
 cfg symlinks ""

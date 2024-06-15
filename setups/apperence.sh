@@ -22,5 +22,12 @@ function setup_fullscreen_toggler() {
   question "You can toggle between modes with \e[36mtoggle\e[35m command."
 }
 
+function setup_colors() {
+  local color_props_path=$(asset_path colors.properties)
+  cp "$color_props_path" "$TERMUX_DIR/colors.properties"
+  termux-reload-settings
+}
+
 nodbg section setup_motd "Termux motd Setup"
 nodbg section setup_fullscreen_toggler "Fullscreen toggler Setup"
+nodbg section setup_colors "Termux colors Setup"

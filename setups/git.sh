@@ -18,10 +18,12 @@ function setup_git() {
   git config --global user.email "$git_user_email"
   git config --global init.defaultBranch "$git_default_branch"
 
-  for alias in "${get_aliases[@]}"; do
+  for alias in "${git_aliases[@]}"; do
     echo "[+] Git alias: '$alias'"
     eval "git config --global alias.$alias"
   done
+
+  git config --global --add safe.directory "*" # Fix safe dir issues
 }
 
 function setup_gh() {

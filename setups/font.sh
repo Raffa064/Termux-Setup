@@ -4,16 +4,17 @@ function setup_font() {
   
     add "Installing Font: $font_name"
     if wget -c "$font_url" > /dev/null 2>&1; then
-      unzip "$font_name.zip" -d "$font_name"
+      add "Unzipping fonts..."
+      unzip "$font_name.zip" -d "$font_name" >/dev/null 2>&1
       local font_file="${font_name}/${font_name}NerdFont${font_type}-${font_weight}.ttf"
       
       local termux_font_path="$TERMUX_DIR/font.ttf"
       if [ -e "$termux_font_path" ]; then
         question "Replacing old font"
-        mv "$termux_font_path" "$TERMUX_DIR/old-font-$RANDOM.ttf"
+        cp "$termux_font_path" "$TERMUX_DIR/old-font-$RANDOM.ttf"
       fi
       
-      mv "$font_file" "$termux_font_path"
+      cp "$font_file" "$termux_font_path"
       rm -rf "$font_name/" "$font_name.zip"
       termux-reload-settings
       

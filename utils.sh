@@ -53,7 +53,7 @@ function code() {
 }
 
 function update_and_upgrade {
-  nodbg pkg update '&&' pkg upgrade
+  nodbg 'eval "yes | pkg update -y && yes | pkg upgrade -y"'
 }
 
 function install_pkg {
@@ -69,7 +69,7 @@ function install_pkg {
 
 function ensure_installed {
   for pkg in "${@}"; do
-    if command -v "$pkg" >/dev/null 2>&1 || apt list --installed 2>/dev/null | grep -q "$pkg"; then
+    if command -v "$pkg" >/dev/null 2>&1 || apt list --installed 2>/dev/null | grep -q "^$pkg/"; then
       warn "Already installed '$pkg'"
     else
       local dbg_prefix=""
