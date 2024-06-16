@@ -10,7 +10,7 @@ function zeoxider() {
   for i in $(ls); do
     local path="$(pwd)/$i"
     if [ -d "$path" ] && ! echo "$exclude" | grep $(basename $path) >/dev/null; then
-      # zoxide add $path
+      zoxide add $path
 
       if [ "$log" -eq 1 ]; then
         echo "$path"
