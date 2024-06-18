@@ -62,6 +62,15 @@ function clean_java() {
   done
 }
 
+function clean_git() {
+  local dir="$1"
+  local git_repo="$dir/.git"
+
+  if [ -e "$git_repo" ]; then
+    git -C "$dir" gc
+  fi
+}
+
 function clean_project() {
   local dir="$1"
 
@@ -79,6 +88,7 @@ function clean_project() {
   if [ "$days" -gt "$COP_MAXAGE" ]; then
     clean_node "$dir"
     clean_java "$dir"
+    clean_git "$dir"
   fi
 }
 
