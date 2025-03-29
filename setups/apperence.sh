@@ -1,11 +1,16 @@
 function setup_motd() {
   local motd_path="$HOME/.termux/motd.sh"
   
-  if [ ! -e "motd_path" ]; then 
-    nodbg touch "$motd_path"
+  if [ -e "motd_path" ]; then
+    warn "Overriding motd.sh"
+    nodbg cp "$motd_path" "$motd_path.bkp"
+    nodbg rm "$motd_path"
   fi
   
-  append_conf "$motd_path" "neofetch"
+  #append_conf "$motd_path" "neofetch"
+
+  local motd="$(asset_path motd.sh)"
+  nodbg cp "$motd" "$motd_path" 
 }
 
 function setup_fullscreen_toggler() {
@@ -24,8 +29,8 @@ function setup_fullscreen_toggler() {
 
 function setup_colors() {
   local color_props_path=$(asset_path colors.properties)
-  cp "$color_props_path" "$TERMUX_DIR/colors.properties"
-  termux-reload-settings
+  nodbg cp "$color_props_path" "$TERMUX_DIR/colors.properties"
+  nodbg termux-reload-settings
 }
 
 nodbg section setup_motd "Termux motd Setup"

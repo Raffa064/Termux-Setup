@@ -28,7 +28,7 @@ function print_configs() {
 function confirm_configs() {
   while :; do
     clear
-    header "Confir your configs:"
+    header "Confirm your configs:"
     
     print_configs
     
